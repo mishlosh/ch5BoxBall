@@ -42,12 +42,24 @@ public class BallDemo
         int botWall = (int)myCanvas.getSize().getHeight()-50;
         int leftWall = 50;
         
+        int middlex = ((rightWall-leftWall)/2) + leftWall;
+        int middley = ((botWall-topWall)/2) + topWall;
+        int leftBox = middlex - ((rightWall-leftWall)/6);
+        int rightBox = middlex + ((rightWall-leftWall)/6);
+        int topBox = middley - ((botWall-topWall)/6);
+        int botBox = middley + ((botWall-topWall)/6);
+        
         myCanvas.setVisible(true);
         
         myCanvas.drawLine(leftWall,botWall,rightWall,botWall);
         myCanvas.drawLine(leftWall,topWall,rightWall,topWall);
         myCanvas.drawLine(leftWall,botWall,leftWall,topWall);
         myCanvas.drawLine(rightWall,botWall,rightWall,topWall);
+        
+        myCanvas.drawLine(leftBox,botBox,rightBox,botBox);
+        myCanvas.drawLine(leftBox,topBox,rightBox,topBox);
+        myCanvas.drawLine(leftBox,botBox,leftBox,topBox);
+        myCanvas.drawLine(rightBox,botBox,rightBox,topBox);
         
         //check to see that ballAmount is within limit of 5-25, random number if not
         
@@ -56,14 +68,16 @@ public class BallDemo
                 balls.add(new BoxBall(rnd.nextInt(rightWall-76)+51,
                     rnd.nextInt(botWall-76)+51,rnd.nextInt(16)+10 ,
                     new Color(rnd.nextInt(226),rnd.nextInt(226),rnd.nextInt(226)),
-                    botWall,leftWall,topWall,rightWall,myCanvas));
+                    botWall,leftWall,topWall,rightWall,myCanvas,
+                    botBox,leftBox,topBox,rightBox));
             }
         }else{
             for(int c = rnd.nextInt(26)+5; c>0; c--){
                 balls.add(new BoxBall(rnd.nextInt(rightWall-76)+51,
                     rnd.nextInt(botWall-76)+51,rnd.nextInt(16)+10 ,
                     new Color(rnd.nextInt(226),rnd.nextInt(226),rnd.nextInt(226)),
-                    botWall,leftWall,topWall,rightWall,myCanvas));
+                    botWall,leftWall,topWall,rightWall,myCanvas,
+                    botBox,leftBox,topBox,rightBox));
             }
         }
         
