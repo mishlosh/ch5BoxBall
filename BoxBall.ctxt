@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=BoxBall
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ BoxBall\ here.\r\n\r\n\ @author\ Michal\ Legocki\r\n\ @version\ 2018/10/15\r\n
+comment1.params=xPos\ yPos\ ballDiameter\ ballColor\ botWall\ leftWall\ topWall\ rightWall\ drawingCanvas
+comment1.target=BoxBall(int,\ int,\ int,\ java.awt.Color,\ int,\ int,\ int,\ int,\ Canvas)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ BoxBall\r\n
+comment2.params=
+comment2.target=void\ draw()
+comment2.text=\r\n\ Draw\ this\ ball\ at\ its\ current\ position\ onto\ the\ canvas.\r\n
+comment3.params=
+comment3.target=void\ erase()
+comment3.text=\r\n\ Erase\ this\ ball\ at\ its\ current\ position.\r\n
+comment4.params=
+comment4.target=void\ move()
+comment4.text=\r\n\ Move\ this\ ball\ according\ to\ its\ position\ and\ speed\ and\ redraw.\r\n
+comment5.params=
+comment5.target=int\ getXPosition()
+comment5.text=\r\n\ return\ the\ horizontal\ position\ of\ this\ ball\r\n
+comment6.params=
+comment6.target=int\ getYPosition()
+comment6.text=\r\n\ return\ the\ vertical\ position\ of\ this\ ball\r\n
+numComments=7
