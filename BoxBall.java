@@ -3,7 +3,7 @@ import java.awt.geom.*;
 import java.util.Random;
 
 /**
- * Write a description of class BoxBall here.
+ * A ball which will bounce around within a box
  *
  * @author Michal Legocki
  * @version 2018/10/15

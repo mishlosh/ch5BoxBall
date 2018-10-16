@@ -49,19 +49,25 @@ public class BallDemo
         myCanvas.drawLine(leftWall,botWall,leftWall,topWall);
         myCanvas.drawLine(rightWall,botWall,rightWall,topWall);
         
+        //check to see that ballAmount is within limit of 5-25, random number if not
+        
         if(ballAmount >=5 && ballAmount <= 25){
             for(int c = ballAmount; c>0; c--){
                 balls.add(new BoxBall(rnd.nextInt(rightWall-76)+51,
                     rnd.nextInt(botWall-76)+51,rnd.nextInt(16)+10 ,
-                    Color.BLACK,botWall,leftWall,topWall,rightWall,myCanvas));
+                    new Color(rnd.nextInt(226),rnd.nextInt(226),rnd.nextInt(226)),
+                    botWall,leftWall,topWall,rightWall,myCanvas));
             }
         }else{
             for(int c = rnd.nextInt(26)+5; c>0; c--){
                 balls.add(new BoxBall(rnd.nextInt(rightWall-76)+51,
                     rnd.nextInt(botWall-76)+51,rnd.nextInt(16)+10 ,
-                    Color.BLACK,botWall,leftWall,topWall,rightWall,myCanvas));
+                    new Color(rnd.nextInt(226),rnd.nextInt(226),rnd.nextInt(226)),
+                    botWall,leftWall,topWall,rightWall,myCanvas));
             }
         }
+        
+        //loop which simulates
         
         boolean finished = false;
         
