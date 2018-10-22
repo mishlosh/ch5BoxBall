@@ -90,7 +90,13 @@ public class BallDemo
             for(BoxBall ball : balls){
                 ball.move();
             }
+            myCanvas.setForegroundColor(Color.black);
             myCanvas.drawLine(leftWall,botWall,leftWall,topWall);
+            
+            myCanvas.drawLine(leftBox,botBox,rightBox,botBox);
+            myCanvas.drawLine(leftBox,topBox,rightBox,topBox);
+            myCanvas.drawLine(leftBox,botBox,leftBox,topBox);
+            myCanvas.drawLine(rightBox,botBox,rightBox,topBox);
         }
         
         

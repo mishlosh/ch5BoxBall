@@ -121,27 +121,37 @@ public class BoxBall
             xSpeed = -xSpeed;
         }
         
+        // **********************BOX**********************
+        
         // check if it has hit the bot box
-        if(yPosition <= (botBox) && ySpeed < 0) {
+        if(yPosition <= (botBox) && 
+            yPosition > (botBox+ySpeed) && ySpeed < 0 && 
+            (xPosition >= (leftBox - diameter) && xPosition <= rightBox)) {
             yPosition = (int)(botBox);
             ySpeed = -ySpeed;
         }
         // check if it has hit the top box
-        if(yPosition >= (topBox - diameter) && ySpeed > 0) {
+        if(yPosition >= (topBox - diameter) && 
+            yPosition < (topBox - diameter +ySpeed) && ySpeed > 0 &&
+            (xPosition >= (leftBox - diameter) && xPosition <= rightBox)) {
             yPosition = (int)(topBox - diameter);
             ySpeed = -ySpeed;
         }
         // check if it has hit the left box
-        if(xPosition >= (leftBox - diameter) && xSpeed > 0) {
+        if(xPosition >= (leftBox - diameter) && 
+            xPosition < (leftBox - diameter + xSpeed) && xSpeed > 0 &&
+            (yPosition >= (topBox - diameter) && yPosition <= botBox)) {
             xPosition = (int)(leftBox - diameter);
             xSpeed = -xSpeed;
         }
         // check if it has hit the right box
-        if(xPosition <= (rightBox) && xSpeed < 0) {
+        if(xPosition <= (rightBox) && 
+            xPosition > (rightBox + xSpeed) && xSpeed < 0 &&
+            (yPosition >= (topBox - diameter) && yPosition <= botBox)) {
             xPosition = (int)(rightBox);
             xSpeed = -xSpeed;
         }
-
+           
         // draw again at new position
         draw();
     }    
