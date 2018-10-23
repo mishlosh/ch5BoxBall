@@ -65,19 +65,57 @@ public class BallDemo
         
         if(ballAmount >=5 && ballAmount <= 25){
             for(int c = ballAmount; c>0; c--){
+                int ypo;
+                int xpo = rnd.nextInt(rightWall-76)+51;
+                if (xpo > leftBox && xpo < rightBox){
+                    ypo = rnd.nextInt(topBox-76)+51;
+                    if(rnd.nextBoolean()){
+                        ypo += botBox - topWall;
+                    }
+                }else{
+                    ypo = rnd.nextInt(botWall-76)+51;
+                }
+                int dia = rnd.nextInt(16)+10;
+                Color col = new Color(rnd.nextInt(226),rnd.nextInt(226),
+                    rnd.nextInt(226));
+                BoxBall nBall = new BoxBall(xpo,ypo,dia,col,botWall,
+                                    leftWall,topWall,rightWall,myCanvas,
+                                    botBox,leftBox,topBox,rightBox);
+                balls.add(nBall);
+                /*
                 balls.add(new BoxBall(rnd.nextInt(rightWall-76)+51,
                     rnd.nextInt(botWall-76)+51,rnd.nextInt(16)+10 ,
                     new Color(rnd.nextInt(226),rnd.nextInt(226),rnd.nextInt(226)),
                     botWall,leftWall,topWall,rightWall,myCanvas,
                     botBox,leftBox,topBox,rightBox));
+                    */
             }
         }else{
             for(int c = rnd.nextInt(26)+5; c>0; c--){
+                int ypo;
+                int xpo = rnd.nextInt(rightWall-76)+51;
+                if (xpo > leftBox && xpo < rightBox){
+                    ypo = rnd.nextInt(topBox-76)+51;
+                    if(rnd.nextBoolean()){
+                        ypo += botBox - topWall;
+                    }
+                }else{
+                    ypo = rnd.nextInt(botWall-76)+51;
+                }
+                int dia = rnd.nextInt(16)+10;
+                Color col = new Color(rnd.nextInt(226),rnd.nextInt(226),
+                    rnd.nextInt(226));
+                BoxBall nBall = new BoxBall(xpo,ypo,dia,col,botWall,
+                                    leftWall,topWall,rightWall,myCanvas,
+                                    botBox,leftBox,topBox,rightBox);
+                balls.add(nBall);
+                /*
                 balls.add(new BoxBall(rnd.nextInt(rightWall-76)+51,
                     rnd.nextInt(botWall-76)+51,rnd.nextInt(16)+10 ,
                     new Color(rnd.nextInt(226),rnd.nextInt(226),rnd.nextInt(226)),
                     botWall,leftWall,topWall,rightWall,myCanvas,
                     botBox,leftBox,topBox,rightBox));
+                    */
             }
         }
         
