@@ -22,6 +22,10 @@ public class BoxBall
     private Canvas canvas;
     private int ySpeed;                
     private int xSpeed;
+    private final int botBox;
+    private final int leftBox;
+    private final int rightBox;
+    private final int topBox;
 
     /**
      * Constructor for objects of class BoxBall
@@ -38,7 +42,8 @@ public class BoxBall
      */
     public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
                         int botWall, int leftWall, int topWall, int rightWall, 
-                        Canvas drawingCanvas)
+                        Canvas drawingCanvas,
+                        int botBox, int leftBox, int topBox, int rightBox)
     {
         xPosition = xPos;
         yPosition = yPos;
@@ -49,6 +54,10 @@ public class BoxBall
         this.topWall = topWall;
         this.rightWall = rightWall;
         canvas = drawingCanvas;
+        this.botBox = botBox;
+        this.leftBox = leftBox;
+        this.topBox = topBox;
+        this.rightBox = rightBox;
         
         Random rnd = new Random();
         xSpeed = rnd.nextInt(7)+1;
@@ -111,7 +120,46 @@ public class BoxBall
             xPosition = (int)(rightWall - diameter);
             xSpeed = -xSpeed;
         }
-
+        
+        // **********************BOX**********************
+        
+        // check if it has hit the bot box
+        if(yPosition <= (botBox) && 
+            yPosition > (botBox + ySpeed) && 
+            ySpeed < 0 && 
+            (xPosition >= (leftBox - diameter) && xPosition <= rightBox)) 
+        {
+            yPosition = (int)(botBox);
+            ySpeed = -ySpeed;
+        }
+        // check if it has hit the top box
+        if(yPosition >= (topBox - diameter) && 
+            yPosition < (topBox - diameter + ySpeed) && 
+            ySpeed > 0 &&
+            (xPosition >= (leftBox - diameter) && xPosition <= rightBox)) 
+        {
+            yPosition = (int)(topBox - diameter);
+            ySpeed = -ySpeed;
+        }
+        // check if it has hit the left box
+        if(xPosition >= (leftBox - diameter) && 
+            xPosition < (leftBox - diameter + xSpeed) && 
+            xSpeed > 0 &&
+            (yPosition >= (topBox - diameter) && yPosition <= botBox)) 
+        {
+            xPosition = (int)(leftBox - diameter);
+            xSpeed = -xSpeed;
+        }
+        // check if it has hit the right box
+        if(xPosition <= (rightBox) && 
+            xPosition > (rightBox + xSpeed) && 
+            xSpeed < 0 &&
+            (yPosition >= (topBox - diameter) && yPosition <= botBox)) 
+        {
+            xPosition = (int)(rightBox);
+            xSpeed = -xSpeed;
+        }
+           
         // draw again at new position
         draw();
     }    
