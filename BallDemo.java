@@ -81,7 +81,18 @@ public class BallDemo
                 BoxBall nBall = new BoxBall(xpo,ypo,dia,col,botWall,
                                     leftWall,topWall,rightWall,myCanvas,
                                     botBox,leftBox,topBox,rightBox);
-                balls.add(nBall);
+                boolean collides = false;                    
+                for(BoxBall target: balls){
+                    if (nBall.collides(target)){
+                        collides = true;
+                    }
+                }
+                
+                if (!collides){
+                    balls.add(nBall);
+                }
+                                    
+                                    
                 /*
                 balls.add(new BoxBall(rnd.nextInt(rightWall-76)+51,
                     rnd.nextInt(botWall-76)+51,rnd.nextInt(16)+10 ,
@@ -108,7 +119,16 @@ public class BallDemo
                 BoxBall nBall = new BoxBall(xpo,ypo,dia,col,botWall,
                                     leftWall,topWall,rightWall,myCanvas,
                                     botBox,leftBox,topBox,rightBox);
-                balls.add(nBall);
+                boolean collides = false;                    
+                for(BoxBall target: balls){
+                    if (nBall.collides(target)){
+                        collides = true;
+                    }
+                }
+                
+                if (!collides){
+                    balls.add(nBall);
+                }
                 /*
                 balls.add(new BoxBall(rnd.nextInt(rightWall-76)+51,
                     rnd.nextInt(botWall-76)+51,rnd.nextInt(16)+10 ,
@@ -119,15 +139,26 @@ public class BallDemo
             }
         }
         
+        
         //loop which simulates
         
         boolean finished = false;
         
         while(!finished){
             myCanvas.wait(50);
-            for(BoxBall ball : balls){
+            for(BoxBall ball : balls){                
                 ball.move();
             }
+            for(BoxBall baller : balls){
+                    for(BoxBall target : balls){
+                        if ((baller!=target)){
+                    
+                            if (baller.collides(target)){
+                                   baller.itCollided();
+                                }
+                            }
+                        }
+                    }
             myCanvas.setForegroundColor(Color.black);
             myCanvas.drawLine(leftWall,botWall,leftWall,topWall);
             

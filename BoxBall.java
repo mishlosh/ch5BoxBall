@@ -163,6 +163,38 @@ public class BoxBall
         // draw again at new position
         draw();
     }    
+    
+    /**
+     * checks whether the ball overlaps with target BoxBall
+     */
+    public boolean collides(BoxBall ball){
+        boolean collides = false;
+        
+        if(
+            ((ball.getXPosition() <= xPosition) && 
+            (xPosition <= ball.getXPosition()+ball.getDiameter()) ||
+            (ball.getXPosition() <= xPosition + diameter) && 
+            (xPosition+diameter <= ball.getXPosition()+ball.getDiameter())) &&
+            
+            ((ball.getYPosition() <= yPosition) &&
+            (yPosition <= ball.getYPosition()+ball.getDiameter()) ||
+            (ball.getYPosition() <= yPosition+diameter) &&
+            (yPosition+diameter <= ball.getYPosition()+ball.getDiameter())))
+            {
+                collides = true;
+            }      
+        
+        
+        return collides;
+    }
+    
+    /**
+     *  flips the xSpeed and ySpeed
+     */
+    public void itCollided(){
+        xSpeed = -xSpeed;
+        ySpeed = -ySpeed;
+    }
 
     /**
      * return the horizontal position of this ball
@@ -178,5 +210,12 @@ public class BoxBall
     public int getYPosition()
     {
         return yPosition;
+    }
+    
+    /**
+     * return the diameter of this ball
+     */
+    public int getDiameter(){
+        return diameter;
     }
 }
